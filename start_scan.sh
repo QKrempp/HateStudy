@@ -24,7 +24,7 @@ do
     for word in $(cat words_to_test.txt)
     do
         echo "Recherche du mot $word"
-        echo "- $word : $(cat json/$file | jq '.comments[].text' | grep -o $word | wc -l)" >> results.txt
+        echo "- $word : $(cat json/$file | jq '.comments[].text' | grep -io $word | wc -l)" >> results.txt
     done
     echo "" >> results.txt
 done
